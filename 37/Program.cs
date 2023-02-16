@@ -29,7 +29,6 @@ int[] GetArrayFromString(string stringArray)
 int[] ResultArray(int[] array)
 {
     int size = (array.Length + 1)/ 2;
-//    if (array.Length % 2 == 1) size++;
     int[] result = new int[size];
     for (int i = 0; i < array.Length / 2; i++)
     {
@@ -38,4 +37,4 @@ int[] ResultArray(int[] array)
     }
     if (array.Length % 2 == 1) result[size-1] = array[array.Length / 2];
     return result;
-}
+} 

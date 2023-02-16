@@ -10,47 +10,57 @@
 // [10, 11, 12, 13, 14]-> 5
 
 
-Console.Clear();
-int[] startArray = GetArray(123, -200 , 1230);
-Console.WriteLine($"Количество элементов в отрезке [10;99] = {GetCountElements(startArray, 10, 99)}");
+// Console.Clear();
+// int[] startArray = GetArray(123, -200 , 1230);
+// Console.WriteLine($"Количество элементов в отрезке [10;99] = {GetCountElements(startArray, 10, 99)}");
 
-int[] GetArray(int size, int minValue, int maxValue)
+// int[] GetArray(int size, int minValue, int maxValue)
+// {
+//     int[] res = new int[size];
+
+//     for (int i = 0; i < size; i++)
+//     {
+//         res[i] = new Random().Next(minValue, maxValue + 1);
+//     }
+//     return res;
+// }
+
+// int GetCountElements(int[] array, int leftRange, int rigthRange)
+// {
+//     int count = 0;
+//     foreach (var item in array)
+//     {
+//         if (item >= leftRange && item <= rigthRange) count++;
+//     }
+//     return count;
+// }
+
+int size = 123;
+int min = -100;
+int max = 200;
+
+int[] FillArray(int size, int min, int max)
 {
-    int[] res = new int[size];
-
+    int[] array = new int[size];
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next(minValue, maxValue + 1);
+        array[i] = new Random().Next(min, max + 1);
     }
-    return res;
+    return array;
 }
 
-int GetCountElements(int[] array, int leftRange, int rigthRange)
+void PrintCountArray(int[] arr)
 {
-    int count = 0;
-    foreach (var item in array)
+    int count = 1;
+    Console.WriteLine();
+    for (int i = 0; i < arr.Length; i++)
     {
-        if (item >= leftRange && item <= rigthRange) count++;
+        System.Console.Write(arr[i] + " ");
+        if (arr[i] >= 10 && arr[i] <= 99) count++;
     }
-    return count;
+    Console.WriteLine();
+    Console.WriteLine($"Количество чисел из диапазона [10, 99] равно {count}");
+    Console.WriteLine();
 }
-// Вариант 2  ОБА ОТ ПРЕПОДАВАТЕЛЯ
-// Console.WriteLine("Введите число: ");
-// string number = Console.ReadLine();
-// int length = number.Length;
 
-// if (length == 5)
-// {
-//     if (number[0] == number[4] && number[1] == number[3])
-//     {
-//         Console.WriteLine($"{number} - Палиндром");
-//     }
-//     else
-//     {
-//         Console.WriteLine($"{number} - Не палиндром");
-//     }
-// }
-// else
-// {
-//     Console.WriteLine($"ОШИБКА: {number} - не является пятизначным");
-// }
+PrintCountArray(FillArray(size, min, max));
